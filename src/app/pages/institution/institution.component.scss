@@ -1,0 +1,42 @@
+@import '../../../assets/styles/form.scss';
+
+.institution{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 0px 40px;
+
+    .limiter{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .content{
+            display: flex;
+
+            .list{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                margin-left: 30px;
+
+                .title{
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: darkgray;
+                    margin: 0px 0px 20px;
+                }
+
+                .row{
+                    margin: 8px 0px;
+                    cursor: pointer;
+
+                    &:hover{
+                        color: darkslateblue;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,95 @@
+<section class="institution">
+    <div class="limiter">
+        <h1 class="common-title">Cadastro da Instituição</h1>
+
+        <div class="content">
+            <form class="common-form" (change)="inputChange($event)" [formGroup]="institutionForm">
+                <div class="box-input">
+                    <label>Nome da Instituição: </label>
+                    <input type="text" class="common-input" formControlName="name" [ngClass]="{ 'has-error': inputHasError('name') }" />
+                </div>
+
+                <div class="box-input">
+                    <label>CNPJ: </label>
+                    <input type="text" class="common-input" [mask]="cnpjMask" formControlName="cnpj" [ngClass]="{ 'has-error': inputHasError('cnpj') }" />
+                </div>
+
+                <div class="box-input">
+                    <label>CEP: </label>
+                    <input type="text" class="common-input" [mask]="zipcodeMask" formControlName="zipcode" [ngClass]="{ 'has-error': inputHasError('zipcode') }" />
+                </div>
+
+                <div class="box-input">
+                    <label>Endereço: </label>
+                    <input type="text" class="common-input" formControlName="street" [ngClass]="{ 'has-error': inputHasError('street') }" />
+                </div>
+
+                <div class="box-input">
+                    <label>Número: </label>
+                    <input type="text" class="common-input" #inputNumber formControlName="number" [ngClass]="{ 'has-error': inputHasError('number') }" />
+                </div>
+
+                <div class="box-input">
+                    <label>Complemento: </label>
+                    <input type="text" class="common-input" formControlName="complement" />
+                </div>
+
+                <div class="box-input">
+                    <label>UF: </label>
+                    <select formControlName="state" class="common-input" [ngClass]="{ 'has-error': inputHasError('state') }" required>
+                        <option *ngFor="let state of states" [value]="state.id">{{ state.name }}</option>
+                    </select>
+                </div>
+
+                <div class="box-input">
+                    <label>Cidade: </label>
+                    <select formControlName="city" class="common-input" [ngClass]="{ 'has-error': inputHasError('city') }" required>
+                        <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>
+                    </select>
+                </div>
+
+                <div class="box-input">
+                    <label>Bairro: </label>
+                    <input type="text" class="common-input" formControlName="neighbourhood" [ngClass]="{ 'has-error': inputHasError('neighbourhood') }" />
+                </div>
+
+                <div class="box-input">
+                    <label>Tipo: </label>
+                    <select class="common-input select" formControlName="type" [ngClass]="{ 'has-error': inputHasError('type') }">
+                        <option></option>
+                        <option value="1">Universidade</option>
+                        <option value="2">Aceleradora</option>
+                        <option value="3">Extensão</option>
+                        <option value="4">SEBRAE</option>
+                    </select>
+                </div>
+
+                <div class="footer-form">
+                    <button class="common-button primary" (click)="buildForms()">
+                        Novo
+                    </button>
+
+                    <button class="common-button primary" (click)="update()">
+                        Alterar
+                    </button>
+
+                    <button class="common-button primary" (click)="add()">
+                        Salvar
+                    </button>
+
+                    <button class="common-button primary" (click)="delete()">
+                        Excluir
+                    </button>
+                </div>
+            </form>
+
+            <div class="list">
+                <h2 class="title">Instituições</h2>
+
+                <span class="row" *ngFor="let institution of institutionService.list" (click)="selectInstitution(institution)" >
+                    {{ institution.name }}
+                </span>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,25 @@
+header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 12px 32px;
+    box-shadow: -1px 7px 10px -6px rgba(0,0,0,0.75);
+    background: #2E8B57;
+
+    h1{
+        margin: 0px 40px 0px 0px;
+        color: white;
+    }
+
+    nav{
+        span{
+            color: white;
+            margin-right: 15px;
+            cursor: pointer;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

@@ -1,0 +1,102 @@
+<section class="moderator">
+    <div class="limiter">
+        <h1 class="common-title">Cadastro do Moderador</h1>
+
+        <div class="content">
+            <form class="common-form" [formGroup]="moderatorForm">
+                <div class="box-input">
+                    <label>Nome do moderador: </label>
+                    <input type="text" class="common-input" formControlName="name"
+                        [ngClass]="{ 'has-error': inputHasError('name') }" />
+                </div>
+
+                <div class="box-input">
+                    <div class="col">
+                        <label>Data de nascimento: </label>
+                        <input type="text" class="common-input" formControlName="birthdate" />
+                    </div>
+
+                    <div class="col">
+                        <label>Idade: </label>
+                        <input type="text" class="common-input" formControlName="age" disabled />
+                    </div>
+                </div>
+
+                <div class="box-input">
+                    <label>Instituição: </label>
+                    <select formControlName="institutionId" class="common-input"
+                        [ngClass]="{ 'has-error': inputHasError('institutionId') }" required>
+                        <option [value]="institution.id" *ngFor="let institution of institutionService.list">
+                            {{ institution.name }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="box-input">
+                    <label>Função: </label>
+                    <select formControlName="profission" class="common-input"
+                        [ngClass]="{ 'has-error': inputHasError('profission') }" required>
+                        <option></option>
+                        <option value="1">Professor</option>
+                        <option value="2">Facilitador</option>
+                        <option value="3">Outra função</option>
+                    </select>
+                </div>
+
+                <div class="box-input">
+                    <label>E-mail: </label>
+                    <input type="text" class="common-input" #inputNumber formControlName="email"
+                        [ngClass]="{ 'has-error': inputHasError('email') }" />
+                </div>
+
+                <div class="box-input">
+                    <div class="col">
+                        <label>Período Moderação: </label>
+                        <input type="text" class="common-input" formControlName="initPeriod" [ngClass]="{ 'has-error': inputHasError('initPeriod') }" />
+                    </div>
+
+                    <div class="col">
+                        <label>a </label>
+                        <input type="text" class="common-input" formControlName="toPeriod" [ngClass]="{ 'has-error': inputHasError('toPeriod') }" />
+                    </div>
+                </div>
+
+                <div class="box-input">
+                    <label>Descrição da experiência: </label>
+                    <textarea class="common-input textarea" formControlName="description"></textarea>
+                </div>
+
+                <div class="box-input">
+                    <label>Protocolo: </label>
+                    <input type="text" class="common-input" formControlName="protocol" disabled />
+                </div>
+
+                <div class="footer-form">
+                    <button class="common-button primary" (click)="buildForms()">
+                        Novo
+                    </button>
+
+                    <button class="common-button primary" (click)="update()">
+                        Alterar
+                    </button>
+
+                    <button class="common-button primary" (click)="add()">
+                        Salvar
+                    </button>
+
+                    <button class="common-button primary" (click)="delete()">
+                        Excluir
+                    </button>
+                </div>
+            </form>
+
+            <div class="list">
+                <h2 class="title">Moderadores</h2>
+
+                <span class="row" *ngFor="let moderator of moderatorService.list" (click)="selectModerator(moderator)" >
+                    {{ moderator.name }}
+                </span>
+            </div>
+        </div>
+    </div>
+</section>

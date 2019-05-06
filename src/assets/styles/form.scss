@@ -1,0 +1,75 @@
+.common-form{
+    .box-input{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 20px;
+
+        label{
+            width: 150px;
+            margin-right: 10px;
+            text-align: right;
+            color: #2E8B57;
+        }
+
+        .common-input{
+            width: 500px;
+            border-radius: 4px;
+            border: 1px solid #CCC;
+            padding: 0px 12px;
+            color: darkgrey;
+            height: 36px;
+            outline: none;
+
+            &.has-error{
+                border-color: rgb(175, 35, 35);
+            }
+
+            &.textarea{
+                height: 150px;
+                padding: 12px;
+            }
+        }
+
+        .col{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            .common-input{
+                width: 200px;
+            }
+
+            &:last-child{
+                label{
+                    width: 90px;
+                }
+            }
+        }
+    }
+
+    .footer-form{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .common-button{
+            margin-left: 12px;
+            border-radius: 4px;
+            height: 30px;
+            padding: 0px 12px;
+
+            &.primary{
+                background: #2E8B57;
+                border: none;
+                color: white;
+                transition: .3s;
+
+                &:hover{
+                    cursor: pointer;
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
