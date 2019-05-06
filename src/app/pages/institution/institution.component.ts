@@ -6,6 +6,7 @@ import { FormsUtils } from 'src/app/utils/forms-utils';
 import { FormsValidators } from 'src/app/utils/forms-validators';
 import { Address } from 'src/app/models/address';
 import { ApiAddressService } from 'src/app/services/api-address.service';
+import { ModeratorService } from '../moderator/service/moderator.service';
 
 @Component({
     selector: 'institution',
@@ -29,6 +30,7 @@ export class InstitutionComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder, 
         public institutionService: InstitutionService,
+        public moderatorService: ModeratorService,
         public addressesService: ApiAddressService
     ) { }
 
@@ -37,7 +39,7 @@ export class InstitutionComponent implements OnInit {
         this.loadStates();
     }
 
-    private buildForms(): void {
+    public buildForms(): void {
         this.institutionForm = this.formBuilder.group({
             name: ['', Validators.required],
             cnpj: ['', [FormsValidators.validateCNPJ]],
@@ -106,8 +108,21 @@ export class InstitutionComponent implements OnInit {
     public delete(): void {
         if(!this.selected) return;
 
+        if(!this.validDelete()){
+            alert("Você não pode deletar uma instituição já vínculada a um moderador");
+            return;
+        }
+
         this.institutionService.delete(this.selected.id);
         this.buildForms();
+    }
+
+    public validDelete(): boolean {
+        const moderators = this.moderatorService.list.filter(m => m.institutionId == this.selected.id);
+        
+        if(moderators.length > 0) return false;
+
+        return true;
     }
 
     public fillForms(institution: Institution): void {

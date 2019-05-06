@@ -1,7 +1,7 @@
 export class Moderator{
     public id: number;
     public name: string;
-    public birthdate: string;
+    public birthday: string;
     public age: number;
     public institutionId: number;
     public profission: number;

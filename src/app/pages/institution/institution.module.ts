@@ -6,6 +6,7 @@ import { NgxMaskModule } from "ngx-mask";
 import { ApiAddressService } from 'src/app/services/api-address.service';
 import { InstitutionService } from './service/institution.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ModeratorService } from '../moderator/service/moderator.service';
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     ],
     providers: [
         ApiAddressService,
-        InstitutionService
+        InstitutionService,
+        ModeratorService
     ]
 })
 export class InstitutionModule { }

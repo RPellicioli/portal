@@ -23,6 +23,18 @@ export class FormsUtils {
         }
     }
 
+    public static unTouchFormControls(form: FormGroup): void {
+        if (form && form.controls) {
+            for (let key of Object.keys(form.controls)) {
+                try {
+                    form.controls[key].markAsUntouched();
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+        }
+    }
+
     public static formToModel<T>(form: FormGroup, type: { new(): T; }): T {
         const model: T = new type();
         if (form && form.controls && type) {

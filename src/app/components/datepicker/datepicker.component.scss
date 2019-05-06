@@ -1,0 +1,23 @@
+@import "../../../assets/styles/form.scss";
+
+/deep/ picker {
+  /deep/ input {
+    padding: 10px !important;
+    font-size: 1rem !important;
+    margin-bottom: 20px !important;
+    border: none !important;
+    border-bottom: 1px solid #dcdcdc !important;
+    box-sizing: border-box;
+  }
+
+  /deep/ .picker-calendar-container {
+    z-index: 999 !important;
+  }
+}
+
+/deep/ ng-datepicker {
+  z-index: 4;
+  /deep/.topbar-container, .main-calendar-container{
+    box-sizing: border-box;
+  }
+}

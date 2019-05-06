@@ -13,12 +13,12 @@
                 <div class="box-input">
                     <div class="col">
                         <label>Data de nascimento: </label>
-                        <input type="text" class="common-input" formControlName="birthdate" />
+                        <datepicker formControlName="birthday" (dateChange)="birthdayChange($event)"></datepicker>
                     </div>
 
                     <div class="col">
                         <label>Idade: </label>
-                        <input type="text" class="common-input" formControlName="age" disabled />
+                        <input type="text" class="common-input" [ngClass]="{ 'has-error': inputHasError('age') }" formControlName="age" disabled />
                     </div>
                 </div>
 
@@ -52,12 +52,12 @@
                 <div class="box-input">
                     <div class="col">
                         <label>Período Moderação: </label>
-                        <input type="text" class="common-input" formControlName="initPeriod" [ngClass]="{ 'has-error': inputHasError('initPeriod') }" />
+                        <datepicker formControlName="initPeriod"></datepicker>
                     </div>
 
                     <div class="col">
                         <label>a </label>
-                        <input type="text" class="common-input" formControlName="toPeriod" [ngClass]="{ 'has-error': inputHasError('toPeriod') }" />
+                        <datepicker formControlName="toPeriod"></datepicker>
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="footer-form">
-                    <button class="common-button primary" (click)="buildForms()">
+                    <button class="common-button primary" (click)="reset()">
                         Novo
                     </button>
 

@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModeratorComponent } from './moderator.component';
 import { InstitutionService } from '../institution/service/institution.service';
 import { ModeratorService } from './service/moderator.service';
+import { DatePickerModule } from 'src/app/components/datepicker/datepicker.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
     imports: [
@@ -12,6 +14,8 @@ import { ModeratorService } from './service/moderator.service';
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+        DatePickerModule,
+        NgxMaskModule.forRoot()
     ],
     exports: [
         ModeratorComponent
