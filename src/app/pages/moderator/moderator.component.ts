@@ -34,7 +34,7 @@ export class ModeratorComponent implements OnInit {
             email: ['', Validators.compose([Validators.required, Validators.email])],
             initPeriod: ['', Validators.required],
             toPeriod: ['', Validators.required],
-            description: [''],
+            experience: [''],
             protocol: ['']
         });
     }
@@ -48,7 +48,6 @@ export class ModeratorComponent implements OnInit {
         this.moderatorForm.controls['email'].setValue("");
         this.moderatorForm.controls['initPeriod'].setValue("");
         this.moderatorForm.controls['toPeriod'].setValue("");
-        this.moderatorForm.controls['description'].setValue("");
         this.moderatorForm.controls['protocol'].setValue("");
 
         FormsUtils.unTouchFormControls(this.moderatorForm);
@@ -102,7 +101,7 @@ export class ModeratorComponent implements OnInit {
             moderator.email = postData.email;
             moderator.initPeriod = postData.initPeriod;
             moderator.toPeriod = postData.toPeriod;
-            moderator.description = postData.description;
+            moderator.experience = postData.experience;
             moderator.protocol = postData.protocol;
         }
         else {

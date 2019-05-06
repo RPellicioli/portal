@@ -35,6 +35,7 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
+            position: relative;
 
             .common-input{
                 width: 200px;
@@ -44,6 +45,14 @@
                 label{
                     width: 90px;
                 }
+            }
+
+            .alert{
+                color: rgb(175, 35, 35);
+                font-size: 11px;
+                position: absolute;
+                right: 0;
+                bottom: -2px;
             }
         }
     }

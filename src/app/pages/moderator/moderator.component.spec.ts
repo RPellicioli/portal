@@ -76,7 +76,6 @@ describe('ModeratorComponent', () => {
         component.moderatorForm.controls['profission'].setValue(1);
         component.moderatorForm.controls['initPeriod'].setValue(new Date('2019-11-13'));
         component.moderatorForm.controls['toPeriod'].setValue(new Date('2019-11-22'));
-        component.moderatorForm.controls['description'].setValue("Empreendedor");
 
         component.add();
 

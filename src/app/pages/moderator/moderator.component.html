@@ -14,6 +14,7 @@
                     <div class="col">
                         <label>Data de nascimento: </label>
                         <datepicker formControlName="birthday" (dateChange)="birthdayChange($event)"></datepicker>
+                        <span class="alert" *ngIf="inputHasError('birthday')">Preencha este campo</span>
                     </div>
 
                     <div class="col">
@@ -53,17 +54,14 @@
                     <div class="col">
                         <label>Período Moderação: </label>
                         <datepicker formControlName="initPeriod"></datepicker>
+                        <span class="alert" *ngIf="inputHasError('initPeriod')">Preencha este campo</span>
                     </div>
 
                     <div class="col">
                         <label>a </label>
                         <datepicker formControlName="toPeriod"></datepicker>
+                        <span class="alert" *ngIf="inputHasError('toPeriod')">Preencha este campo</span>
                     </div>
-                </div>
-
-                <div class="box-input">
-                    <label>Descrição da experiência: </label>
-                    <textarea class="common-input textarea" formControlName="description"></textarea>
                 </div>
 
                 <div class="box-input">

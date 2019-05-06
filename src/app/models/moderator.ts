@@ -8,6 +8,7 @@ export class Moderator{
     public email: string;
     public initPeriod: string;
     public toPeriod: string;
-    public description: string;
+    public experience: Array<string> = [];
     public protocol: number;
+    public range?: number;
 }

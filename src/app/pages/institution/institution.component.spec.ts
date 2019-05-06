@@ -73,7 +73,6 @@ describe('InstitutionComponent', () => {
         moderator['email'] = "ricardo@teste.com";
         moderator['initPeriod'] = '2019-11-13';
         moderator['toPeriod'] = '2019-11-22';
-        moderator['description'] = "Empreendedor";
         moderator['protocol'] = 3;
 
         moderatorService.list.push(moderator);
