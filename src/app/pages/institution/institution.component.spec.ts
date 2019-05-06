@@ -85,7 +85,7 @@ describe('InstitutionComponent', () => {
         expect(component.delete()).toBeFalsy();
     });
 
-    it('form invalid when cnpj is wrong', () => {
+    it('form invalid when cnpj its wrong', () => {
         component.institutionForm.controls['cnpj'].setValue("11.111.280/1001-53");
         let cnpj = component.institutionForm.controls['cnpj'];
 
@@ -99,7 +99,7 @@ describe('InstitutionComponent', () => {
         expect(cnpj.valid).toBeTruthy();
     });
 
-    it('form invalid when type is not selected', () => {
+    it('form invalid when type its not selected', () => {
         component.institutionForm.controls['type'].setValue(null);
         let type = component.institutionForm.controls['type'];
 
