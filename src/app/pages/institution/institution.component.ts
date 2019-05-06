@@ -77,6 +77,7 @@ export class InstitutionComponent implements OnInit {
 
             this.institutionService.push(postData);
             this.buildForms();
+            alert("Instituição cadastrada com sucesso");
         }
         else {
             FormsUtils.touchFormControls(this.institutionForm);
@@ -99,6 +100,8 @@ export class InstitutionComponent implements OnInit {
             institution.street = postData.street;
             institution.number = postData.number;
             institution.state = postData.state;
+
+            alert("Instituição atualizada com sucesso");
         }
         else {
             FormsUtils.touchFormControls(this.institutionForm);
@@ -115,11 +118,12 @@ export class InstitutionComponent implements OnInit {
 
         this.institutionService.delete(this.selected.id);
         this.buildForms();
+        alert("Instituição excluída com sucesso");
     }
 
     public validDelete(): boolean {
         const moderators = this.moderatorService.list.filter(m => m.institutionId == this.selected.id);
-        
+
         if(moderators.length > 0) return false;
 
         return true;

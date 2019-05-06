@@ -81,6 +81,7 @@ export class ModeratorComponent implements OnInit {
 
             this.moderatorService.push(postData);
             this.reset();
+            alert("Moderador cadastrado com sucesso");
         }
         else {
             FormsUtils.touchFormControls(this.moderatorForm);
@@ -103,6 +104,8 @@ export class ModeratorComponent implements OnInit {
             moderator.toPeriod = postData.toPeriod;
             moderator.experience = postData.experience;
             moderator.protocol = postData.protocol;
+
+            alert("Moderador atualizado");
         }
         else {
             FormsUtils.touchFormControls(this.moderatorForm);
@@ -114,6 +117,7 @@ export class ModeratorComponent implements OnInit {
 
         this.moderatorService.delete(this.selected.id);
         this.reset();
+        alert("Moderador excluído com sucesso");
     }
 
     public birthdayChange($event): void {
