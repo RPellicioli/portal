@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModeratorComponent } from './moderator.component';
 import { ModeratorModule } from './moderator.module';
+import { ModeratorService } from './service/moderator.service';
 
 describe('ModeratorComponent', () => {
     let component: ModeratorComponent;
@@ -61,5 +62,24 @@ describe('ModeratorComponent', () => {
         let valid = component.moderatorForm.controls['email'].valid;
 
         expect(valid).toBeFalsy();
+    });
+
+    it('First moderator created should be protocol equals 3', () => {
+        const moderatorService: ModeratorService = TestBed.get(ModeratorService);
+        moderatorService.list = [];
+
+        component.moderatorForm.controls['name'].setValue("Ricardo");
+        component.moderatorForm.controls['email'].setValue("ricardo@goimage.com.br");
+        component.moderatorForm.controls['birthday'].setValue(new Date('1993-04-13'));
+        component.moderatorForm.controls['age'].setValue(26);
+        component.moderatorForm.controls['institutionId'].setValue(0);
+        component.moderatorForm.controls['profission'].setValue(1);
+        component.moderatorForm.controls['initPeriod'].setValue(new Date('2019-11-13'));
+        component.moderatorForm.controls['toPeriod'].setValue(new Date('2019-11-22'));
+        component.moderatorForm.controls['description'].setValue("Empreendedor");
+
+        component.add();
+
+        expect(moderatorService.list[0].protocol).toBe(3);
     });
 });

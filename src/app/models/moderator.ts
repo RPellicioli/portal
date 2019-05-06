@@ -9,5 +9,5 @@ export class Moderator{
     public initPeriod: string;
     public toPeriod: string;
     public description: string;
-    public protocol: string;
+    public protocol: number;
 }

@@ -65,15 +65,16 @@ describe('InstitutionComponent', () => {
         let moderator = new Moderator();
 
         moderator['id'] = 0;
-        moderator['name'] = "Universidade Teste";
+        moderator['name'] = "Ricardo";
         moderator['birthday'] = '1993-04-13';
         moderator['age'] = 26;
         moderator['institutionId'] = 0;
         moderator['profission'] = 1;
+        moderator['email'] = "ricardo@teste.com";
         moderator['initPeriod'] = '2019-11-13';
         moderator['toPeriod'] = '2019-11-22';
         moderator['description'] = "Empreendedor";
-        moderator['protocol'] = '3';
+        moderator['protocol'] = 3;
 
         moderatorService.list.push(moderator);
 

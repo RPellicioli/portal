@@ -78,6 +78,7 @@ export class ModeratorComponent implements OnInit {
         if(this.moderatorForm.valid && this.validPeriod() && this.validName()){
             let postData = this.createRequestData();
             postData.id = this.moderatorService.list.length;
+            postData.protocol = this.fib(postData.id + 4);
 
             this.moderatorService.push(postData);
             this.reset();
@@ -131,6 +132,15 @@ export class ModeratorComponent implements OnInit {
                 this.moderatorForm.controls['age'].setValue(age);
             }
         }
+    }
+
+    public fib(n: number): number{
+        let arr = [0, 1];
+        for (let i = 2; i < n + 1; i++){
+            arr.push(arr[i - 2] + arr[i -1])
+        }
+
+        return arr[n]
     }
 
     public fillForms(moderator: Moderator): void {

@@ -15,7 +15,7 @@ export class ModeratorService {
             profission: 1,
             initPeriod: '2019-11-03',
             toPeriod: '2019-11-11',
-            protocol: "3",
+            protocol: 3,
             description: "Teste",
             institutionId: 0
         }
